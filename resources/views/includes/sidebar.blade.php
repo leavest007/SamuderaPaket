@@ -16,7 +16,7 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class=" nav-item">
-                    <a href="{{ route('dashboard')}}">
+                    <a href="#">
                         <i class="feather icon-home"></i>
                         <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
                     </a>
