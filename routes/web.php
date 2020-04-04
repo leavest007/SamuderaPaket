@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('login');
 });
+
+Route::get('/login', function () {
+    return redirect('/');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', 'DashboardController@dashboard');
+    Route::group(['prefix' => 'admin'], function () {
+        
+
+        // Role Group
+        
+    });
+});
+
+

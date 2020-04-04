@@ -70,7 +70,7 @@
                                                 <form action="{{ url('login')}}" method="POST">
                                                     @csrf
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left {{ $errors->has('email') ? 'has-error' : ''}}">
-                                                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                                        <input type="email" class="form-control" id="email" placeholder="Email" value="{{ old('email')}}" required autofocus>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
@@ -85,14 +85,14 @@
                                                             <i class="feather icon-lock"></i>
                                                         </div>
                                                         @if ($errors->has('email'))
-                                                            <label for="user-password">Password</label>
+                                                            <label for="password">Password</label>
                                                         @endif
                                                     </fieldset>
                                                     <div class="form-group d-flex justify-content-between align-items-center">
                                                         <div class="text-left">
                                                             <fieldset class="checkbox">
                                                                 <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                    <input type="checkbox">
+                                                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}>
                                                                     <span class="vs-checkbox">
                                                                         <span class="vs-checkbox--check">
                                                                             <i class="vs-icon feather icon-check"></i>
@@ -102,7 +102,7 @@
                                                                 </div>
                                                             </fieldset>
                                                         </div>
-                                                        <div class="text-right"><a href="#" class="card-link">Forgot Password?</a></div>
+                                                        <div class="text-right"><a href="{{ url('password-reset')}}" class="card-link">Forgot Password?</a></div>
                                                     </div>
                                                     <a href="{{ url('register')}}" class="btn btn-outline-primary float-left btn-inline">Register</a>
                                                     <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
