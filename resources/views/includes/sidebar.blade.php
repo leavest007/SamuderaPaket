@@ -61,7 +61,7 @@
                     </a>
                     <ul class="menu-content">
                         <li>
-                            <a href="\Account">
+                            <a href="\account">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item" data-i18n="Account">Account</span>
                             </a>
