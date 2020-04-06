@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,24 +11,30 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
-    return view('login');
+    return view('dashboard');
 });
 
-Route::get('/login', function () {
+Route::get('/auth/login', function () {
+    return redirect('/');
+});
+
+Route::get('/logout', function () {
+    Auth::logout();
     return redirect('/');
 });
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'DashboardController@dashboard');
     Route::group(['prefix' => 'admin'], function () {
-        
 
         // Role Group
-        
+        Route::group(['prefix' => 'role'], function () {
+            Route::get('/', 'AdminController@role');
+
+        });
+
     });
 });
-
-
